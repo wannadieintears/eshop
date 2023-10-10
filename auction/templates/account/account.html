@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    {% for el in acc %}
+        <title>Account :: {{ el.username }}</title>
+        <div>
+            <h1>{{ el.username }}</h1>
+            <h3>My Contacts: {{ el.phone }} | {{ el.email }}</h3>
+        </div>
+    {% endfor %}
+    <h4>My posts:</h4>
+    {% for el in posts %}
+        <div>
+            <p>----------------------------</p>
+            <h3><a href="{% url 'advertisement' el.id %}">{{ el.name }}</a></h3>
+            <p>{{ el.price }}$ | {{ el.date }}</p>
+            <p>----------------------------</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

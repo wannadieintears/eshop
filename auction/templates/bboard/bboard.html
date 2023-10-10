@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bboard</title>
+</head>
+<body>
+    <div>
+        <h2><a href="{% url 'myacc' %}">My account</a></h2>
+        <h2><a href="{% url 'reg' %}">Sign up</a></h2>
+    </div>
+    {% for el in bb %}
+        <div>
+            <p>----------------------------</p> <!-- front-end? hm... -->
+            <h3><a href="{% url 'advertisement' el.id %}">{{ el.name }}</a></h3>
+            <p>{{ el.price }}$ | {{ el.date }}</p>
+            <p>----------------------------</p> <!-- naaah, I haven't heard 'bout this shit -->
+        </div>
+    {% endfor %}
+</body>
+</html>

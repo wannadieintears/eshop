@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Your account!</title>
+</head>
+<body>
+    {% for el in acc %}
+    <h2>{{ el.username }}</h2>
+    <h3>My contacts: {{ el.phone }} | {{ el.email }}</h3>
+    {% endfor %}
+    <button onclick="location.href='{% url 'logout' %}?next=/'">Log out</button>
+    <h4><a href="{% url 'newpost' %}">Create a new post</a></h4>
+    <h4>My posts:</h4>
+    {% for el in posts %}
+        <div>
+            <p>----------------------------</p>
+            <h3><a href="{% url 'advertisement' el.id %}">{{ el.name }}</a></h3>
+            <p>{{ el.price }}$ | {{ el.date }}</p>
+            <p>----------------------------</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
